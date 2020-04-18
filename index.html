@@ -1,7 +1,36 @@
 <html>
-  <head>
-  </head>
   <body>
-    <p>やあ！</p>
+    <script type="text/javascript">
+      function chan(){
+        if(sele.value == 1){
+          document.getElementById("tex").innerHTML = "<input type='number' id='num' placeholder='底辺'><br><input type='number' id='numm' placeholder='高さ'><br> <input type='button' value='判断' onclick='handan(num.value,numm.value)'>";
+        } else if(sele.value == 2){
+          document.getElementById("tex").innerHTML = "<input type='number' id='num' placeholder='底辺'><br><input type='number' id='numm' placeholder='高さ'><br> <input type='button' value='判断' onclick='handan(num.value,numm.value)'>";
+        } else if(sele.value == 3){
+          document.getElementById("tex").innerHTML = "<input type='number' id='num' placeholder='上底'><br> <input type='number' id='numm' placeholder='下底'><br> <input type='number' id='nummm' placeholder='高さ'><br> <input type='button' value='判断' onclick='handan(num.value,numm.value,nummm.value)'>";
+        }else{
+          document.getElementById("tex").innerHTML = "";
+        }
+      }
+      function handan(a,b,c){
+        if(sele.value == 1){
+          document.getElementById("kekka").innerHTML = a * b;
+        } else if(sele.value == 2){
+          document.getElementById("kekka").innerHTML = a * b / 2;
+        } else if(sele.value == 3){
+          document.getElementById("kekka").innerHTML = (a*1 + b*1) * c / 2;
+        } else{
+          document.getElementById("kekka").innerHTML = "図形を選択してください";
+        }
+      }
+    </script>
+    <select id="sele" onChange="chan()">
+      <option value=0 selected="selected">種類を選択</option>
+      <option value=1>平方四辺形</option>
+      <option value=2>三角形</option>
+      <option value=3>台形</option>
+    </select><br>
+    <div id="tex"></div>
+    <div id="kekka">面積を表示します</div>
   </body>
 </html>
