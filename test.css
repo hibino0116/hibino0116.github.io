@@ -277,3 +277,24 @@ a{
   padding:  80px 28px;
   font-size: 30px;
 }
+
+.menu_panel .checker{
+  font-size: 100px;
+  position: absolute;
+  top: 120px;
+  left: 350px;
+}
+
+.menu_panel .m_condition{
+  font-size: 100px;
+  position: absolute;
+  top: 800px;
+  left: 200px;
+}
+
+.menu_panel .e_condition{
+  font-size: 100px;
+  position: absolute;
+  top: 1460px;
+  left: 150px;
+}
