@@ -1,7 +1,279 @@
-.header {
-  color: #000000;
+.header{
+  font-weight: bold;
+  background-color:#ff83c5;
+  font-size:40px;
+  padding:10px 140px;
+  width:1200px;
+  height:130px;
+}
+
+.header .title{
+  position:absolute;
+  font-size: 60px;
+  top: -10px;
+  left: 450px;
+}
+
+.time{
+  background-color:#ffffff;
+  font-size:50px;
+  position:relative;
+  padding:10px 20px;
+}
+
+.time_2{
+  background-color:#ffffff;
+  font-size:50px;
+  position:relative;
+  padding:10px 20px;
+  height: 120px;
+}
+
+.ringo{
+  position:relative;
+  top:-60px;
+  left:-12px;
+  width:40px;
+  height:40px;
+}
+
+.name{
+  position:relative;
+  background-color:#fbff7a;
+  font-size:25px;
+  top: -20px;
+  width:1490px;
+  height: 1950px;
+}
+
+.name p{
+  padding:10px 0px 0px 40px;
+  font-size: 60px;
+}
+
+.name img{
+  position:relative;
+  left:20px;
+}
+
+.back_button{
+  position:absolute;
+  top: 20px;
+  left:10px;
+  cursor :pointer;
+}
+
+.header .back{
+  position:relative;
+  top: 15px;
+  left:-110px;
+  font-size: 30px;
+}
+
+.next_button{
+  position:absolute;
+  top: 20px;
+  left:1350px;
+  cursor :pointer;
+}
+
+.header .next{
+  position:relative;
+  top: -60px;
+  left: 90px;
+  font-size: 30px;
+}
+
+.name .taionkei{
+  position:absolute;
+  top: 45px;
+  left: 650px;
+}
+
+.radio {
+  display: none;
+}
+ 
+.radio + .radio_image {
+  background-color: #ffffff;
+}
+
+.radio:checked + .radio_image {
+  background-color: #00ff00;
+}
+
+ .clear{
+  clear: both;
+}
+
+ .kenkou{
+  clear: both;
+  position:relative;
+  top:-100px;
+}
+
+ .kenkou_img{
+  position:relative;
+  top:-160px;
+  left:-12px;
+  width:40px;
+  height:40px;
+}
+
+.taityou{
+  float: left;
+  position:relative;
+  top:-40px;
+  left: 500px;
+}
+
+.taityou p{
+  position: absolute;
+  top: 60px;
+  left:15px;
+ color: #000000;
+}
+
+.mikaku{
+  float: left;
+  position:relative;
+  top:-100px;
+  left: 700px;
+}
+
+.mikaku p{
+  position: absolute;
+  top: 60px;
+  left:65px;
+ color: #000000;
+}
+
+.header p{
+  position:absolute;
+  font-size:20px;
+  top:5px;
+  left:22px;
+}
+
+.text_img{
+  position:relative;
+  top: -150px;
+}
+
+.tyuu{
+  position:absolute;
+  font-size:1px;
+  top:1200px;
+  left: 400px;
+}
+
+textarea {
+  position:absolute;
+  font-size:80px;
+  top:1390px;
+  left:40px;
+  width: 1300px;
+  height: 450px;
+  outline: 0;
+  border: 0px;
+  background: transparent;
+}
+
+.hidden_box label {
+    padding: 15px;
+    font-weight: bold;
+    border: solid 2px black;
+    cursor :pointer;
+}
+
+.hidden_box label:hover {
+    background: #ffffff;
+}
+
+.hidden_box input {
+    display: none;
+}
+
+.hidden_box .hidden_show {
+    position:absolute;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+}
+
+.hidden_box input:checked ~ .hidden_show {
+    padding: 10px 0;
+    height: auto;
+    opacity: 1;
+    position:absolute;
+    top:200px;
+    left:30px;
+}
+
+.hidden_box .open{
+  background: #ffffff;
+  font-size:40px;
+  position:absolute;
+  top:370px;
+  left:1030px;
+  padding:-30px;
+  outline: 0;
+  border: 0px;
+  background: transparent;
+}
+
+.hidden_box .complete{
+  background: #ffffff;
+  font-size:80px;
+  position:absolute;
+  top:80px;
+  left:1000px;
+  padding:30px 80px;
+}
+
+.hidden_box .delete{
+  background: #ffffff;
+  font-size:80px;
+  position:absolute;
+  top:80px;
+  left:60px;
+  padding:40px 80px;
+}
+
+.number{
+  font-size:80px;
+  position:relative;
+  top:-2100px;
+  left:-300px;
+}
+
+button{
+  position:relative;
+  top:-990px;
+  left:40px;
+  padding:113px 220px;
+  outline: 0;
+  border: 0px;
+  background: transparent;
+}
+
+.taion{
   font-size:30px;
-  padding:30px 40px;
-  height:60px;
-  border-bottom: 5px solid #e6e6e6;
+  padding:30px 0px;
+}
+
+p{
+  cursor :pointer;
+}
+
+a{
+  text-decoration:none;
+  color: #000000;
+}
+
+.menu_panel{
+  padding:  80px 28px;
+  font-size: 30px;
 }
