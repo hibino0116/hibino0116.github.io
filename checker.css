@@ -274,11 +274,13 @@ a{
 }
 
 .menu_panel{
+  color: #f20704;
   padding:  80px 28px;
   font-size: 30px;
 }
 
 .menu_panel .checker{
+  color: #f20704;
   font-size: 100px;
   position: absolute;
   top: 120px;
@@ -297,4 +299,39 @@ a{
   position: absolute;
   top: 1460px;
   left: 150px;
+}
+
+.menu_panel .meter{
+  position: absolute;
+  top: 40px;
+}
+
+.menu_panel .masuku{
+  position: absolute;
+  top: 200px;
+  left: 1050px;
+}
+
+.menu_panel .huton{
+  position: absolute;
+  top: 730px;
+  left: 40px;
+}
+
+.menu_panel .house{
+  position: absolute;
+  top: 1000px;
+  left: 1150px;
+}
+
+.menu_panel .kyuukyuu{
+  position: absolute;
+  top: 1420px;
+  left: 70px;
+}
+
+.menu_panel .byouin{
+  position: absolute;
+  top: 1680px;
+  left: 1220px;
 }
