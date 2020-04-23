@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="test.css">
+  </head>
+  <body>
+    <div class="header"><img src="./apple.png" width="120px" height="120px" class="back_button">
+    <p onclick="history.back()" class="back">戻る</p><p class="title">Condition Checker</p></div>
+    <div class="time_2"><span id="view-time">DAY</span></div>
+    <div class="name">
+      <div class="menu_panel">
+        <a href="./checker.html"><img src="./textarea.jpg" width="1400px" height="500px" class=""></a>
+        <p class="checker">体調を入力する</p>
+      </div>
+      <div class="menu_panel">
+        <a href=""><img src="./textarea.jpg" width="1400px" height="500px" class=""></a>
+        <p class="m_condition">自分のコンディション</p>
+      </div>
+      <div class="menu_panel">
+        <a href=""><img src="./textarea.jpg" width="1400px" height="500px" class=""></a>
+        <p class="e_condition">みんなのコンディション</p>
+      </div>
+    </div>
+    <script type="text/javascript">
+      document.getElementById("view-time").innerHTML = getTime();
+      function getTime(){
+        let time = new Date()
+        let mon = time.getMonth();day = time.getDate();you = time.getDay();
+        let tuki = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+        let youbi = ["SUN","MON","TUE","WED","THU","FRI","SAT"]
+        return tuki[mon]+". "+day+". "+youbi[you]
+      }
+    </script>
+  </body>
+</html>
