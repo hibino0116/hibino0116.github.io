@@ -1,12 +1,104 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>コンディションチェッカー</title>
-    <link rel="stylesheet" href="test.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js">
+      $(function () {
+        $(".next").on('click', function () { 
+          let form = document.getElementById("form");
+          $.ajax({
+            url: "https://fujiofc-t.com",
+            type: 'POST',
+            data: $(form).serialize(), 
+            success: function(data) {}; 
+            error: function(err) {};
+          });
+        });
+      });
+    </script>
+    <link rel="stylesheet" href="checker.css">
+    <title>コンディションチェッカー</title> 
   </head>
   <body>
-    <div class="header">コンディションチェッカー</div>
-    <script type="text/javascript"></script>
+    <div class="header"><img src="./apple.png" width="120px" height="120px" class="back_button">
+    <p onclick="history.back()" class="back">戻る</p><p class="title">Condition Checker</p>
+    <img src="./blue_apple.png" width="120px" height="120px" class="next_button">
+    <p class="next" onclick="" style="text-align:right">決定</p></div>
+    <div class="time"><span id="view-time">DAY</span></div>
+    <div class="name"> 
+      <form method="post" id="form">
+
+      <p>体温</p>
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo">
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo"><br>
+      <img src="./thermometer.jpg" width="650px" height="250px" class="taionkei">
+
+      <p>今日の体調は？</p>
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo">
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo">
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo">
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo">
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo"><br>
+      <label class="taityou"><input type="radio" name="taityou_select" value="happy" class="radio"><img src="./apple.png" width="300px" height="300px" class="radio_image"><p><b>ハッピー</b></p></label>
+      <label class="taityou"><input type="radio" name="taityou_select" value="maamaa" class="radio"><img src="./blue_apple.png" width="300px" height="300px" class="radio_image"><p><b>まあまあ</b></p></label>
+      <label class="taityou"><input type="radio" name="taityou_select" value="turai" class="radio"><img src="./rotten_apple.png" width="300px" height="300px" class="radio_image"><p><b>つらい</b></p></label>
+
+      <p class="clear">味覚 嗅覚はある？</p>
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo">
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo">
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo">
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo">
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo">
+      <img src="./apple.png" class="ringo"><img src="./blue_apple.png" class="ringo"><br>
+      <label class="mikaku"><input type="radio" name="mikaku_select" value="yes" class="radio"><img src="./half_apple.png" width="300px" height="300px" class="radio_image"><p><b>ある</b></p></label>
+      <label class="mikaku"><input type="radio" name="mikaku_select" value="no" class="radio"><img src="./half_blue_apple.png" width="300px" height="300px" class="radio_image"><p><b>ない</b></p></label>
+
+      <p class="kenkou">健康メモ</p>
+      <img src="./apple.png" class="kenkou_img"><img src="./blue_apple.png" class="kenkou_img">
+      <img src="./apple.png" class="kenkou_img"><img src="./blue_apple.png" class="kenkou_img">
+      <img src="./apple.png" class="kenkou_img"><img src="./blue_apple.png" class="kenkou_img">
+      <img src="./apple.png" class="kenkou_img"><img src="./blue_apple.png" class="kenkou_img">
+      <p class="tyuu">※何かあれば下にご記入ください</p><br>
+      <img src="./textarea.jpg" width="1400px" height="500px" class="text_img"><textarea></textarea>
+      </form>
+    </div>
+    <div class="hidden_box">
+      <label for="label1" class="open"><p id="screen">36.0℃</p><input type="text" name="taion" value="36.0℃" id="taion" class="open"></label>
+      <input type="checkbox" class="switch" id="label1"/>
+      <div class="hidden_show">
+        <p><label for="label1" class="delete" onclick="textclear()">×</label>
+        <label for="label1" class="complete" onclick="textset()">完了</label><img src="number_screen.jpg" width="1400px" height="1600px"></p>
+        <button onclick="textupdate(7)"></button><button onclick="textupdate(8)"></button><button onclick="textupdate(9)"></button><br>
+        <button onclick="textupdate(4)"></button><button onclick="textupdate(5)"></button><button onclick="textupdate(6)"></button><br>
+        <button onclick="textupdate(1)"></button><button onclick="textupdate(2)"></button><button onclick="textupdate(3)"></button><br>
+        <button onclick="textdelete()"></button><button onclick="textupdate(0)"></button><button onclick="textupdate('.')"></button><br>
+      <b><div id="test" style="text-align:right" class="number"></div></b>
+    </div>
+    <script type="text/javascript">
+      document.getElementById("view-time").innerHTML = getTime();
+      function textupdate(number){
+        document.getElementById("test").innerHTML = (document.getElementById("test").innerHTML + number).slice(0,4)
+      }
+      function textdelete(){
+        document.getElementById("test").innerHTML = document.getElementById("test").innerHTML.slice(0,-1);
+      }
+      function textset(){
+        let text = document.getElementById("test").innerHTML
+        if(text <=40.0 && text >= 35.0){
+          document.getElementById("taion").value = (text+".0").slice(0,4) + "℃"
+          document.getElementById("screen").innerHTML = (text+".0").slice(0,4) + "℃"
+        }
+        document.getElementById("test").innerHTML = ""
+      }
+      function textclear(){
+        document.getElementById("test").innerHTML = ""
+      }
+      function getTime(){
+        let time = new Date()
+        let mon = time.getMonth();day = time.getDate();you = time.getDay();
+        let tuki = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+        let youbi = ["SUN","MON","TUE","WED","THU","FRI","SAT"]
+        return tuki[mon]+". "+day+". "+youbi[you]
+      }
+    </script>
   </body>
 </html>
