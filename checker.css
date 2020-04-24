@@ -15,17 +15,20 @@
 }
 
 .time{
-  background-color:#ffffff;
+  background-color:white;
   font-size:50px;
   position:relative;
   padding:10px 20px;
+  width: 1440px;
+  height: 100px;
 }
 
 .time_2{
-  background-color:#ffffff;
+  background-color:white;
   font-size:50px;
   position:relative;
   padding:10px 20px;
+  width: 1440px;
   height: 120px;
 }
 
@@ -43,7 +46,7 @@
   font-size:25px;
   top: -20px;
   width:1490px;
-  height: 1950px;
+  height: 1800px;
 }
 
 .name p{
@@ -95,7 +98,7 @@
 }
  
 .radio + .radio_image {
-  background-color: #ffffff;
+  background-color: white;
 }
 
 .radio:checked + .radio_image {
@@ -131,7 +134,7 @@
   position: absolute;
   top: 60px;
   left:15px;
- color: #000000;
+ color: black;
 }
 
 .mikaku{
@@ -145,7 +148,7 @@
   position: absolute;
   top: 60px;
   left:65px;
- color: #000000;
+ color: black;
 }
 
 .header p{
@@ -169,7 +172,7 @@
 
 textarea {
   position:absolute;
-  font-size:80px;
+  font-size:65px;
   top:1390px;
   left:40px;
   width: 1300px;
@@ -187,7 +190,7 @@ textarea {
 }
 
 .hidden_box label:hover {
-    background: #ffffff;
+    background: white;
 }
 
 .hidden_box input {
@@ -213,10 +216,10 @@ textarea {
 }
 
 .hidden_box .open{
-  background: #ffffff;
+  background: white;
   font-size:40px;
   position:absolute;
-  top:370px;
+  top:410px;
   left:1030px;
   padding:-30px;
   outline: 0;
@@ -225,7 +228,7 @@ textarea {
 }
 
 .hidden_box .complete{
-  background: #ffffff;
+  background: white;
   font-size:80px;
   position:absolute;
   top:80px;
@@ -234,7 +237,7 @@ textarea {
 }
 
 .hidden_box .delete{
-  background: #ffffff;
+  background: white;
   font-size:80px;
   position:absolute;
   top:80px;
@@ -270,7 +273,7 @@ p{
 
 a{
   text-decoration:none;
-  color: #000000;
+  color: black;
 }
 
 .menu_panel{
@@ -334,4 +337,42 @@ a{
   position: absolute;
   top: 1680px;
   left: 1220px;
+}
+
+.condition_header{
+  font-weight: bold;
+  background-color:#ff83c5;
+  font-size:40px;
+  padding:10px 140px;
+  width:680px;
+  height:130px;
+}
+
+ .condition_title{
+  position:absolute;
+  font-size: 50px;
+  top: -20px;
+  left: 250px;
+}
+
+.condition_header .back{
+  position:relative;
+  top: 15px;
+  left:-110px;
+  font-size: 30px;
+}
+
+.username{
+  position: absolute;
+  top: 60px;
+  left:400px;
+}
+
+.condition_name{
+  background-color: #fff2cd;
+}
+
+.condition_name table{
+  font-size: 50px;
+  color: white;
 }
