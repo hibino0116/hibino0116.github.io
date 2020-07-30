@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  </head>
+  <body>
+    <script type="text/javascript">
+      let array = []
+      function execCopy(string){
+        let tmp = document.createElement("div");
+        let pre = document.createElement('pre');
+        pre.style.webkitUserSelect = 'auto';
+        pre.style.userSelect = 'auto';
+        tmp.appendChild(pre).textContent = string;
+        var s = tmp.style;
+        s.position = 'fixed';
+        s.right = '200%';
+        document.body.appendChild(tmp);
+        document.getSelection().selectAllChildren(tmp);
+        var result = document.execCommand("copy");
+        document.body.removeChild(tmp);
+        return result;
+      }
+      function copy(a){
+        if(execCopy(a)){
+          alert("成功")
+        }else{
+          alert("失敗")
+        }
+      }
+      function henkou(a){
+        let b = a.replace(/\r|\r\n/g,"\n").replace(/\/\/(.*?)\n/g,"").replace(/ |	|\n/g,"").replace(/\/\*(.*?)\*\//g,"")
+        let d;
+        try{
+          d = shaping(JSON.parse(b))
+        }catch(err){
+          alert(err)
+        }
+        document.getElementById("output").innerHTML = JSON.stringify(d,null,2).replace(/"shapingreplace"/g,function(){
+          let retu = array[0]
+          array.shift()
+          return retu
+        }).replace(/({|\[)(\d|"|')/g,'$1 $2').replace(/(\d|"|')(\]|})/g,'$1 $2').replace(/:(\d|"|')/g,': $1').replace(/,(\d|"|')/g,', $1');
+      }
+      function shaping(object){
+        let obj;
+        if(object instanceof Array == false){
+          obj = {}
+          if(Object.keys(object).length){
+            if(Object.keys(object)[0].match(/^(value|test|origin|effect)$/g)){
+              array.push(JSON.stringify(object))
+              obj = "shapingreplace"
+            }
+            else{
+              for(data in object){
+                if((typeof object[data]).match(/^(string|number|boolean)$/)) obj[data] = object[data]
+                else if(typeof object[data] == "object"){
+                  if(data.match(/^(add|remove)$/)){
+                    array.push(JSON.stringify(object[data]))
+                    obj[data] = "shapingreplace"
+                  }
+                  else obj[data] = shaping(object[data])
+                }
+              }
+            }
+          }
+        }
+        else if(object instanceof Array == true){
+          obj = []
+          if((!object.some(data=> typeof data != "number") || !object.some(data=> typeof data == "object")) && object.length <= 10){
+            array.push(JSON.stringify(object))
+            obj = "shapingreplace"
+          }
+          else{
+            for(data of object){
+              if(typeof data == "object") obj.push(shaping(data))
+              else obj.push(data)
+            }
+          }
+        }
+        return obj
+      }
+    </script>
+      <form>
+        <textarea id="input" cols="50" rows="30"></textarea><br>
+        <input type='button' value='変更' onclick='henkou(input.value)'></input><br>
+        <textarea id="output" cols="50" rows="30" onclick='copy(output.value);' readonly></textarea> 
+      </form>
+  </body>
+</html>
